@@ -1,1 +1,101 @@
-git
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Landing Pages</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!-- Header & Navigasi -->
+    <header class="sticky top-0 z-50 bg-slate-900 text-white">
+        <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+            <span class="font-bold text-xl">Logo</span>
+
+            <!-- Menu Desktop -->
+            <div class="hidden md:flex gap-6">
+                <a href="#home" class="hover:text-gray-300 transition duration-300">Home</a>
+                <a href="#about" class="hover:text-gray-300 transition duration-300">About</a>
+                <a href="#contact" class="hover:text-gray-300 transition duration-300">Contact</a>
+            </div>
+
+            <!-- Tombol Hamburger Mobile -->
+            <button id="menuBtn" class="md:hidden text-white focus:outline-none p-2 border border-slate-700 rounded hover:bg-slate-800" aria-label="Buka menu">
+                <svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Menu Mobile -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-800 border-t border-slate-700 px-6 py-4 flex flex-col gap-4">
+            <a href="#home" class="mobile-link text-gray-200 hover:text-white font-medium py-1 border-b border-slate-700/50">Home</a>
+            <a href="#about" class="mobile-link text-gray-200 hover:text-white font-medium py-1 border-b border-slate-700/50">About</a>
+            <a href="#contact" class="mobile-link text-gray-200 hover:text-white font-medium py-1">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section / Home -->
+    <section id="home" class="flex flex-col items-center justify-between text-center py-24 px-6">
+        <h1 class="text-4xl font-bold">
+            Landing Page
+        </h1>
+        <p>Aku adalah seorang developer</p>
+        <button class="bg-blue-900 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-700 transition duration-300">Get Started</button>
+    </section>
+
+    <!-- Grid 3 Cards / About -->
+    <section id="about" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6">
+        <div class="bg-red-100 shadow-md rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-2">Landing Page 1</h2>
+            <p class="text-gray-600">Description of Landing Page 1.</p>
+        </div>
+        <div class="bg-green-100 shadow-md rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-2">Landing Page 2</h2>
+            <p class="text-gray-600">Description of Landing Page 2.</p>
+        </div>
+        <div class="bg-blue-100 shadow-md rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-2">Landing Page 3</h2>
+            <p class="text-gray-600">Description of Landing Page 3.</p>
+        </div>
+    </section>
+
+    <!-- Form Kontak / Contact -->
+    <form id="contact" class="flex flex-col gap-4 p-6">
+        <label for="email">Email</label>
+        <input id="email" type="email" class="border rounded p-2" />
+        <button type="submit" class="p-2 rounded bg-blue-900 text-white hover:bg-blue-700 transition duration-300">Kirim</button>
+    </form>
+
+    <!-- Footer -->
+    <footer class="flex justify-between items-center p-4">
+        <p>&copy; 2026 Nama Kamu</p>
+        <div class="flex gap-3">
+            <a href="#" class="hover:underline">IG</a>
+            <a href="#" class="hover:underline">GitHub</a>
+        </div>
+    </footer>
+
+    <!-- Script Tombol Hamburger & Auto Close Link -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        // Toggle buka/tutup menu saat hamburger diklik
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Sembunyikan menu otomatis saat salah satu link diklik
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>
